@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        label {
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="operandOne">X:</label>
+        <input name="operandOne" id="operandOne" value="10" oninput="updateResult()">
+
+        <label for="total">Result:</label>
+        <div name="total" id="total"></div>
+    </form>
+    <py-script>
+        def updateResult():
+            input_box = Element("operandOne")
+            operandOne = float(input_box.value)  # Read the input value
+            result = Element("total")
+            result.write("Hello! The input says: " + str(operandOne))
+
+        # Call the function on page load to initialize the display
+        updateResult()
+    </py-script>
+</body>
+</html>
